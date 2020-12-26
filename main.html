@@ -15,12 +15,15 @@
         <input type="file" id="fileSelect" accept=".mp3, .ogg, .wav" onclick="getFileInfo()"></input> <br><br>
         <label for="textBox">Frame Rate: </label>
         <input type="text" id="textBox"> <br><br>
-        <!--This is where audio wave visual will go, most likely a scroll bar-->
+        <!--This is where audio wave visual will go, find a way to set the source from file-->
+        <audio controls="">
+            <source id="audioSource" src="audio/testAudio.mp3"/>
+        </audio> <br><br>
         <!--When setting up the visuals for audio waves, I think I could use wavesurfer.js-->
         <button onclick="changeTimestamp()">Previous</button>
         <button>Play</button>
         <button onclick="changeTimestamp()">Next</button><br>
-        <!--Time stamp-->
-        <h3 id="timestamp">0:0:0:0</h3>
+        <!--Time stamp?-->
+        <h3 id="debug">Duration of Audio:</h3>
     </body>
 </html>
