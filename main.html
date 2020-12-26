@@ -10,6 +10,9 @@
     <body>
         <header><b>Raven Online</b></header>
         <p>(Name will probably change)</p>
+        <!--Label is for accessability I think-->
+        <label for="fileSelect">Select Audio File (mp3, wav, ogg):</label>
+        <input type="file" id="fileSelect" accept=".mp3, .ogg, .wav" onclick="getFileInfo()"></input> <br><br>
         <!--Add functions later, for now just set up the layout-->
         <!--When setting up the visuals for audio waves, I think I could use wavesurfer.js-->
         <button onclick="changeTimestamp()">Previous</button>
