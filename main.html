@@ -16,12 +16,12 @@
         <label for="textBox">Frame Rate: </label>
         <input type="text" id="textBox"> <br><br>
         <!--This is where audio wave visual will go, find a way to set the source from file-->
-        <audio controls="">
-            <source id="audioSource" src="audio/testAudio.mp3"/>
+        <!--**Find a way to reach specific points in audio, removed controls from audio tag**-->
+        <audio controls id="audioSource" src="audio/testAudio.mp3">
         </audio> <br><br>
         <!--When setting up the visuals for audio waves, I think I could use wavesurfer.js-->
         <button onclick="changeTimestamp()">Previous</button>
-        <button>Play</button>
+        <button onclick="getAudioDuration()">Play</button> <!--Changed from playAudio function-->
         <button onclick="changeTimestamp()">Next</button><br>
         <!--Time stamp?-->
         <h3 id="debug">Duration of Audio:</h3>

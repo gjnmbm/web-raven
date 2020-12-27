@@ -36,8 +36,11 @@ function getFileInfo() {
 }
 
 function getAudioDuration() { //This is to see if I'm able to get the duration of the given audio clip
-    var audio = document.getElementById('fileSelect');
-    audio.onloadedmetadata = function() {
-        alert(audio.duration);
-    };
+//This only works if the audio is already loaded, not if the audio is given by the user
+    var audio = document.getElementById('audioSource');
+    document.getElementById('debug').textContent = `Duration of Audio: ${audio.duration} seconds`;
+}
+
+function playAudio() { //Not working
+    
 }
