@@ -1,46 +1,37 @@
-let milliSec = 0;
-let seconds = 0;
-let minutes = 0; //= seconds/60;
-let hours = 0; //= minutes/60;
+let audioLength;
+let audio;
 
 function changeTimestamp() {
-    //I can use the input from textBox and audio length in order to change timestamp
-    milliSec += 1;
-    //Isn't there a simpler way to do this? A less lines way?
-    //I will need to change how the timestamp changes later on and make sure that I don't start the timestamp at 0
-    if (milliSec == 60) {
-        milliSec = 0;
-        seconds += 1;
-    }
-    if (seconds == 60) {
-        seconds = 0;
-        minutes += 1;
-    }
-    if (minutes == 60) {
-        minutes = 0;
-        hours += 1;
-    }
-    document.getElementById('timestamp').textContent = `${hours.toFixed(0)}:${minutes.toFixed(0)}:${seconds.toFixed(0)}:${milliSec.toFixed(0)}`;
+    //Timestamp became obsolete, so this function will instead be used to change the audio playback time
+    
 }
 
 //With this function I'm able to get information on the file provided by the user
 //The info is printed to the console
-//In this function I'll need to change the source for the audio
 function getFileInfo() {
     const fileSelector = document.getElementById('fileSelect');
     fileSelector.addEventListener('change', (event) => {
         const fileList = event.target.files;
         console.log(fileList);
-        //document.getElementById('audioSource').src = fileList[0].name;
   });
 }
 
 function getAudioDuration() { //This is to see if I'm able to get the duration of the given audio clip
-//This only works if the audio is already loaded, not if the audio is given by the user
-    var audio = document.getElementById('audioSource');
+//This works, but is unable to get the duration of the clip
+//Will probably an event listener
+    audio = document.getElementById('fileSelect').files[0];
     document.getElementById('debug').textContent = `Duration of Audio: ${audio.duration} seconds`;
+    audioLength = audio.duration;
 }
 
-function playAudio() { //Not working
-    
+function playAudio() { //Audio is being loaded at least, shown by message not appearing
+    audio = document.getElementById('fileSelect').files[0];
+    if (audio == null) {
+        document.getElementById("errorMsg").textContent = "Couldn't load audio";
+    }
+    else {
+        //Testing to see if loaded audio will play
+        //audio.play(); Apperently this is not a function
+        //document.getElementById("audioSource").src = audio; This doesn't work
+    }
 }
