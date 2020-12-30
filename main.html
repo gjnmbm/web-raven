@@ -23,7 +23,7 @@
         </audio> <br><br>
         <!--When setting up the visuals for audio waves, I think I could use wavesurfer.js-->
         <button onclick="changeTimestamp()">Previous</button>
-        <button onclick="getAudioDuration()">Play</button> <!--Apparently func(); func2(); is obtrusive JS, which I should avoid in the future-->
+        <button onclick="getAudioDuration(); playAudio();">Play</button> <!--Apparently func(); func2(); is obtrusive JS, which I should avoid in the future-->
         <button onclick="changeTimestamp()">Next</button><br>
         <!--Time stamp?-->
         <h3 id="debug">Duration of Audio:</h3> <br><br>

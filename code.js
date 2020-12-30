@@ -18,23 +18,23 @@ function getFileInfo() {
 
 function getAudioDuration() { //This is to see if I'm able to get the duration of the given audio clip
 //Will probably need an event listener
-    audio = document.getElementById('audioSource');
-    
+    //audio = document.getElementById('audioSource');
+    document.getElementById('debug').textContent = `Duration of Audio: ${audio.duration} seconds`;
+
 }
 
 function playAudio() { //Audio is being loaded at least, shown by message not appearing
-    audio = document.getElementById('fileSelect').files[0];
     if (audio == null) {
         document.getElementById("errorMsg").textContent = "Couldn't load audio";
     }
     else {
         //Testing to see if loaded audio will play
-        //audio.play(); Apperently this is not a function
-        //document.getElementById("audioSource").src = audio; This doesn't work
+        audio.play(); //This is a function for audio files
     }
 }
 
-function setAudioURL() {
+function setAudioURL() { //This will load the audio and I'll be able to access it from the global
+//variable
     let file = document.getElementById('fileSelect');
     audio = document.getElementById('audioSource');
     audio.src = URL.createObjectURL(file.files[0]);
