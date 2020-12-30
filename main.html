@@ -12,12 +12,13 @@
         <p>(Name will probably change)</p>
         <!--Label is for accessability I think-->
         <label for="fileSelect">Select Audio File (mp3, wav, ogg):</label>
-        <input type="file" id="fileSelect" accept=".mp3, .ogg, .wav" onclick="getFileInfo()"></input> <br><br>
+        <input type="file" id="fileSelect" accept=".mp3, .ogg, .wav" onclick="getFileInfo()"></input> <br><br> <!--Load audio before trying to do anything with it-->
+        <button onclick="setAudioURL()">Submit</button> <!--Sets the audio URL-->
         <label for="textBox">Frame Rate: </label>
         <input type="text" id="textBox"> <br><br>
         <!--This is where audio wave visual will go, find a way to set the source from file-->
         <!--**Find a way to reach specific points in audio and load audio**-->
-        <audio controls id="audioSource" src="">
+        <audio controls id="audioSource">
             Your browser doesn't support the given audio element <!--This would be displayed if the browser couldn't play the audio-->
         </audio> <br><br>
         <!--When setting up the visuals for audio waves, I think I could use wavesurfer.js-->
