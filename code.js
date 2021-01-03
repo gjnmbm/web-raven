@@ -29,6 +29,8 @@ function playAudio() { //Audio is being loaded at least, shown by message not ap
     }
     else {
         //Testing to see if loaded audio will play
+        //Might need the interval function to check if
+        //audio has reached the end of it's playback portion
         audio.play(); //This is a function for audio files
     }
 }
