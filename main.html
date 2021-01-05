@@ -14,8 +14,8 @@
         <label for="fileSelect">Select Audio File (mp3, wav, ogg):</label>
         <input type="file" id="fileSelect" accept=".mp3, .ogg, .wav" onclick="getFileInfo()"></input> <br><br> <!--Load audio before trying to do anything with it-->
         <button onclick="setAudioURL()">Load Audio</button> <br><br> <!--Sets the audio URL-->
-        <label for="textBox">Frame Rate: </label>
-        <input type="text" id="textBox"> 
+        <label for="frameRate">Frame Rate: </label>
+        <input type="text" id="frameRate"> 
         <button onclick="setFrameRate()">Set Frame Rate</button><br><br>
         <!--This is where audio wave visual will go, find a way to set the source from file-->
         <!--**Find a way to reach specific points in audio and load audio**-->
@@ -24,7 +24,7 @@
         </audio> <br><br>
         <!--When setting up the visuals for audio waves, I think I could use wavesurfer.js-->
         <button onclick="changeTimestamp()">Previous</button>
-        <button onclick="getAudioDuration(); playAudio();">Play</button> <!--Apparently func(); func2(); is obtrusive JS, which I should avoid in the future-->
+        <button onclick="playAudio();">Play</button> <!--Apparently func(); func2(); is obtrusive JS, which I should avoid in the future-->
         <button onclick="changeTimestamp()">Next</button><br>
         <!--Time stamp?-->
         <h3 id="debug">Duration of Audio:</h3> <br><br>

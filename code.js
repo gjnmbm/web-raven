@@ -1,5 +1,8 @@
 let audioLength;
 let audio;
+let startTime;
+let endTime;
+let frameRate;
 
 function changeTimestamp() {
     //Timestamp became obsolete, so this function will instead be used to change the audio playback time
@@ -18,13 +21,16 @@ function getFileInfo() {
 
 function getAudioDuration() { //This is to see if I'm able to get the duration of the given audio clip
 //Will probably need an event listener
-    //audio = document.getElementById('audioSource');
-    document.getElementById('debug').textContent = `Duration of Audio: ${audio.duration} seconds`;
-
+    if (typeof audio === 'undefined') {
+        document.getElementById("errorMsg").textContent = "Couldn't load audio";
+    }
+    else {
+        document.getElementById('debug').textContent = `Duration of Audio: ${audio.duration} seconds`;
+    }
 }
 
-function playAudio() { //Audio is being loaded at least, shown by message not appearing
-    if (audio == null) {
+function playAudio() { //Audio is never NULL
+    if (typeof audio === 'undefined') {
         document.getElementById("errorMsg").textContent = "Couldn't load audio";
     }
     else {
@@ -32,6 +38,7 @@ function playAudio() { //Audio is being loaded at least, shown by message not ap
         //Might need the interval function to check if
         //audio has reached the end of it's playback portion
         audio.play(); //This is a function for audio files
+        setTimeout(audio.stop(), end); //Don't know if this will work yet
     }
 }
 
@@ -40,4 +47,9 @@ function setAudioURL() { //This will load the audio and I'll be able to access i
     let file = document.getElementById('fileSelect');
     audio = document.getElementById('audioSource');
     audio.src = URL.createObjectURL(file.files[0]);
+    audioLength = audio.duration;
+}
+
+function setFrameRate() {
+    frameRate = document.getElementById(frameRate).value;
 }
