@@ -9,7 +9,8 @@
     </head>
     <body>
         <header><b>Raven Online</b></header>
-        <p>(Name will probably change)</p>
+        <p>(Name will probably change)</p> <br>
+        <!--<p id="errorMsg"></p>, code wouldn't catch errors right-->
         <!--Label is for accessability I think-->
         <label for="fileSelect">Select Audio File (mp3, wav, ogg):</label>
         <input type="file" id="fileSelect" accept=".mp3, .ogg, .wav" onclick="getFileInfo()"></input> <br><br> <!--Load audio before trying to do anything with it-->
@@ -28,6 +29,5 @@
         <button onclick="changeTimestamp()">Next</button><br>
         <!--Time stamp?-->
         <h3 id="debug">Duration of Audio:</h3> <br><br>
-        <p id="errorMsg"></p>
     </body>
 </html>
