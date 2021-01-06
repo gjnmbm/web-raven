@@ -1,12 +1,17 @@
 let audioLength;
 let audio;
-let startTime;
-let endTime;
-let frameRate;
+let startTime = 0; //Remember times are in seconds
+let endTime = 5; //Test time
+let frameRate; //Note that commonly used framerates are 6, 12, 24, 60. Multiples of 6, usually.
 
-function changeTimestamp() {
-    //Timestamp became obsolete, so this function will instead be used to change the audio playback time
-    
+function changeTimestampNext() { //Figure out how to go frame by frame
+    if (frameRate > 0) {
+
+    }
+}
+
+function changeTimestampPrior() {
+
 }
 
 //With this function I'm able to get information on the file provided by the user
@@ -20,22 +25,19 @@ function getFileInfo() {
 }
 
 function getAudioDuration() { //This is to see if I'm able to get the duration of the given audio clip
-//Will probably need an event listener
-    if (typeof audio === 'undefined') {
-        document.getElementById("errorMsg").textContent = "Couldn't load audio";
-    }
-    else {
-        document.getElementById('debug').textContent = `Duration of Audio: ${audio.duration} seconds`;
-    }
+    //This piece of code has become obsolete
+    document.getElementById('debug').textContent = `Duration of Audio: ${audio.duration} seconds`;
 }
 
 function playAudio() { //Audio is never NULL
     //Testing to see if loaded audio will play
     //Might need the interval function to check if
     //audio has reached the end of it's playback portion
-    document.getElementById("errorMsg").textContent = "";
+    //document.getElementById("errorMsg").textContent = "";
     audio.play(); //This is a function for audio files
-    setTimeout(audio.stop(), end); //Don't know if this will work yet
+    setTimeout(function() { audio.pause(); }, (endTime*1000)); //Has to be wrapped in an annonymous function
+    //But I thought it could work without doing so...?
+    //I guess the annonymous function prevents it from running immediately for some reason
 }
 
 function setAudioURL() { //This will load the audio and I'll be able to access it from the global
@@ -57,7 +59,8 @@ function setFrameRate() {
     frameRate = parseInt(document.getElementById("frameRate").value, 10);
     document.getElementById("errorMsg").textContent = "";
     if (!Number.isFinite(frameRate)) {
-        document.getElementById("errorMsg").textContent = "Couldn't load audio";
+        frameRate = 0;
+        document.getElementById("errorMsg").textContent = "Number not inputted";
         //console.log(frameRate);
     }
 }
