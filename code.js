@@ -41,10 +41,16 @@ function playAudio() { //Audio is never NULL
 function setAudioURL() { //This will load the audio and I'll be able to access it from the global
 //variable
     let file = document.getElementById('fileSelect');
-    //document.getElementById("errorMsg").textContent = ""; Only else statement would run
-    audio = document.getElementById('audioSource');
-    audio.src = URL.createObjectURL(file.files[0]);
-    audioLength = audio.duration;
+    document.getElementById("errorMsg").textContent = ""; //Only else statement would run
+    //console.log(file.files.length == 0); Do this for error checking instead
+    if (!file.files.length == 0) {
+        audio = document.getElementById('audioSource');
+        audio.src = URL.createObjectURL(file.files[0]);
+        audioLength = audio.duration;
+    }
+    else {
+        document.getElementById("errorMsg").textContent = "Couldn't load audio";
+    }
 }
 
 function setFrameRate() {
@@ -53,6 +59,5 @@ function setFrameRate() {
     if (!Number.isFinite(frameRate)) {
         document.getElementById("errorMsg").textContent = "Couldn't load audio";
         //console.log(frameRate);
-        return;
     }
 }
