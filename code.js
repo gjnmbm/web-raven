@@ -49,5 +49,10 @@ function setAudioURL() { //This will load the audio and I'll be able to access i
 
 function setFrameRate() {
     frameRate = parseInt(document.getElementById("frameRate").value, 10);
-    console.log(frameRate);
+    document.getElementById("errorMsg").textContent = "";
+    if (!Number.isFinite(frameRate)) {
+        document.getElementById("errorMsg").textContent = "Couldn't load audio";
+        //console.log(frameRate);
+        return;
+    }
 }
