@@ -5,12 +5,12 @@ let endTime = 0;
 let frameRate; //Note that commonly used framerates are 6, 12, 24, 60. Multiples of 6, usually.
 
 function changeTimestampNext() { //Figure out how to go frame by frame
-    //Not working. Is it because of global variableness? But I thought that the declaration only happens
-    //Upon loading
+    //Works now
     if (frameRate > 0) {
         startTime = endTime;
         endTime += 1/frameRate;
         audio.currentTime = startTime;
+        console.log(`Start time: ${startTime}, End time: ${endTime}`); //Debuggin'
     }
 }
 
@@ -19,6 +19,7 @@ function changeTimestampPrior() {
         endTime = startTime;
         startTime -= 1/frameRate;
         audio.currentTime = startTime;
+        console.log(`Start time: ${startTime}, End time: ${endTime}`); //Debuggin'
     }
 }
 
@@ -42,10 +43,11 @@ function playAudio() { //This works
     setTimeout(function() { 
         audio.pause();
         audio.currentTime = startTime; 
-    }, (endTime*1000)); //Has to be wrapped in an annonymous function
+    }, ((1/frameRate)*1000)); //Has to be wrapped in an annonymous function
     //I guess the annonymous function prevents it from running immediately for some reason
     //I also have to put all statements I want to run after timeout in the anonnymous function
     //Or else the function just ends without running the next part
+    //Change endTime to 1/frameRate. Works better.
 }
 
 function setAudioURL() { //This will load the audio and I'll be able to access it from the global
@@ -72,8 +74,7 @@ function setFrameRate() {
         document.getElementById("errorMsg").textContent = "Number not inputted";
     }
     else if (frameRate > 0) {
-        endTime = 1/frameRate; //This works, but I need to reset the current time after play
-        //To allow for loops
+        endTime = 1/frameRate; //This works
     }
     else {
         document.getElementById("errorMsg").textContent = "Input a number greater than 0";
