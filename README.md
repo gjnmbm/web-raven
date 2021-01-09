@@ -13,5 +13,5 @@ This is basically going to be a poor Magpie Pro clone and the name is a work in 
 _**Optional Goals**_
 1. Display audio wave
 2. Display subdivisions over wave
-3. Allow user to go to specific audio divisions (_This might not be an optional goal_)
+3. Allow user to go to specific audio divisions 
 4. Allow user to upload and play video clip (their animation) along with the audio to see how video lines up with audio
