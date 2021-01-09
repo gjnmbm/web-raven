@@ -5,7 +5,7 @@ let endTime = 0;
 let frameRate; //Note that commonly used framerates are 6, 12, 24, 60. Multiples of 6, usually.
 
 function changeTimestampNext() { //Figure out how to go frame by frame
-    //Works now
+    //Works now, but when using the seeker, it causes the program to freak out a bit
     if (frameRate > 0) {
         startTime = endTime;
         endTime += 1/frameRate;
@@ -39,6 +39,9 @@ function getAudioDuration() { //This is to see if I'm able to get the duration o
 }
 
 function playAudio() { //This works
+    startTime = audio.currentTime; //42 and 43 added for scrollability, works
+    endTime = startTime + (1/frameRate);
+    console.log(startTime);
     audio.play(); //This is a function for audio files
     setTimeout(function() { 
         audio.pause();
