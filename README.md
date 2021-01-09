@@ -1,5 +1,7 @@
 # Raven Online
 This is basically going to be a poor Magpie Pro clone and the name is a work in progress.
+The program is heavily based off of what I remember Magpie Pro being like when I was in high school, taking an
+animating class and learning about lip syncing.
 
 **Goals of this Project**
 1. Make a way to upload audio clips
